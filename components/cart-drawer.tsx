@@ -14,7 +14,7 @@ interface CartDrawerProps {
 export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
   const { language, t, isRTL } = useLanguage();
   const { items, updateQuantity, removeItem, totalPrice, clearCart } = useCart();
-  const WHATSAPP_PHONE = '212649321580';
+  const WHATSAPP_PHONE = '212670239965';
 
   const getSizeSuffix = (size?: string) => (size ? ` (${size.toUpperCase()})` : '');
 

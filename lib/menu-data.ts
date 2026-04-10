@@ -768,4 +768,4 @@ export const translations = {
   },
 };
 
-export const WHATSAPP_PHONE = '212649321580';
+export const WHATSAPP_PHONE = '212670239965';

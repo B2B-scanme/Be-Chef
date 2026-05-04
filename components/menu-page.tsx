@@ -10,7 +10,64 @@ import { CategoryNav } from '@/components/category-nav';
 import { MenuItem } from '@/components/menu-item';
 import { CartDrawer } from '@/components/cart-drawer';
 import { FloatingCartButton } from '@/components/floating-cart-button';
+import { HorizontalImageScroller } from '@/components/horizontal-image-scroller';
 import { Input } from '@/components/ui/input';
+
+const defaultCategoryGallery = [
+  { src: '/images/1.jpeg', alt: 'Restaurant specialty dish' },
+  { src: '/images/4.jpeg', alt: 'Freshly prepared meal' },
+  { src: '/images/test.jpeg', alt: 'Chef special close up' },
+];
+
+const categoryGalleryById: Record<string, typeof defaultCategoryGallery> = {
+  pizza: [
+    { src: '/images/food/Pizza1.jpeg', alt: 'Pizza and table setting' },
+    { src: '/images/neapolitan.jpeg', alt: 'Pizza and table setting' },
+    { src: '/images/food/Pizza.jpeg', alt: 'Warm restaurant interior' },
+  ],
+  entrees: [
+    { src: '/images/food/Salade.jpeg', alt: 'Starter plate in the restaurant' },
+    { src: '/images/food/Entrees.jpeg', alt: 'Entree close up with garnish' },
+    { src: '/images/food/Cassolette-de-Gambas.png', alt: 'Entree close up with garnish' },
+
+  ],
+  burgers: [
+    { src: '/images/food/Burgers.jpg', alt: 'Burger style presentation' },
+    { src: '/images/food/Burgers2.png', alt: 'Side and burger style serving' },
+    { src: '/images/food/Burgers1.jpeg', alt: 'Restaurant burger atmosphere' },
+  ],
+  tacos: [
+    { src: '/images/food/tacos.jpeg', alt: 'Tacos style colorful plate' },
+    { src: '/images/food/tacos1.jpeg', alt: 'Tacos close up' },
+  ],
+  pasticcio: [
+    { src: '/images/food/Pasticcio.png', alt: 'Pasticcio serving style' },
+    { src: '/images/food/pasticcio.jpeg', alt: 'Hot baked pasta style plate' },
+  ],
+  sandwichs: [
+    { src: '/images/food/sandwich.jpeg', alt: 'Sandwich style close up' },
+    { src: '/images/food/sandwichs.jpeg', alt: 'Sandwich meal on table' },
+  ],
+  baguetto: [
+    { src: '/images/food/Baguetto1.jpeg', alt: 'Baguette sandwich style photo' },
+    { src: '/images/food/Baguetto.jpeg', alt: 'Baguette filling close up' },
+    { src: '/images/food/Baguetto2.jpeg', alt: 'Baguette meal atmosphere' },
+  ],
+  burritos: [
+    { src: '/images/food/Burritos.jpeg', alt: 'Burrito style plating' },
+    { src: '/images/food/burritos1.jpeg', alt: 'Burrito with sides' },
+  ],
+  pates: [
+    { src: '/images/food/pate.jpeg', alt: 'Pasta presentation on table' },
+    { src: '/images/food/pate1.jpeg', alt: 'Pasta presentation on table' },
+    { src: '/images/food/pates.jpeg', alt: 'Pasta close up with sauce' },
+  ],
+  plats: [
+    { src: '/images/food/plates2.jpeg', alt: 'Main dish close up' },
+    { src: '/images/food/Cordon-Bleu.jpeg', alt: 'Main course in restaurant' },
+    { src: '/images/food/plats.jpeg', alt: 'Main dish close up' },
+  ],
+};
 
 export function MenuPage() {
   const { language, t, isRTL } = useLanguage();
@@ -131,6 +188,13 @@ export function MenuPage() {
               </h2>
               <div className="h-px flex-1 bg-border" />
             </div>
+
+            <HorizontalImageScroller
+              images={categoryGalleryById[categoryId] ?? defaultCategoryGallery}
+              className="mb-6"
+              cardClassName="h-44 sm:h-48"
+              sizes="(max-width: 640px) 78vw, 320px"
+            />
 
             {/* Menu Items Grid */}
             <div className="grid gap-4 sm:grid-cols-2">
